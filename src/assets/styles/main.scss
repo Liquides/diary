@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -24,27 +24,119 @@ body {
   width: 520px;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .circles_texture {
+    position: absolute;
+    z-index: 0;
+
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.25;
+
+    .circle {
+      background-color: #212b3f;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 280px;
+      height: 280px;
+
+      .circle {
+        background-color: #27334b;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 200px;
+
+        .circle {
+          background-color: #303e59;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 90px;
+          height: 90px;
+        }
+      }
+    }
+  }
 
   .auth {
-    // display: flex;
+    display: flex;
     align-items: center;
     justify-self: center;
     flex-direction: column;
+    gap: 10px;
+    z-index: 1;
+
+    .title {
+      color: #fff;
+    }
 
     .form {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      background-color: #3d517a;
-      border-radius: "123";
+      background-color: #293a59;
       width: 400px;
-      height: 250px;
+      padding: 20px;
+      border-radius: 10px;
+      gap: 20px;
+
       .inputs {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        width: 100%;
+        gap: 20px;
+
+        input {
+          color: #fff;
+          font-size: 16px;
+          font-weight: 600;
+          outline: none;
+          padding: 10px;
+          width: 100%;
+          border-radius: 10px;
+          background-color: #3d517a;
+          border: none;
+
+          &::placeholder {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+    .auth_button {
+      width: 100%;
+      display: flex;
+
+      button {
+        width: 100%;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #2d4471;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        transition: 0.2s ease;
+
+        &:active {
+          background-color: #3d517a;
+          transition: 0.2s ease;
+        }
       }
     }
   }
