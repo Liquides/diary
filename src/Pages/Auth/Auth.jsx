@@ -1,8 +1,11 @@
 import React from "react";
+import "../../assets/styles/main.scss";
+import NavBar from "../../Components/NavBar/NavBar";
 
 export const Auth = () => {
   return (
     <div className="wrapper">
+      {/* <NavBar /> */}
       <div className="auth">
         <div className="form">
           <div className="title">
