@@ -1,15 +1,15 @@
-import React, { useRef } from "react";
-import "../../assets/styles/main.scss";
-import NavBar from "../../Components/NavBar/NavBar";
-import { auth } from "../../Components/Functions/AuthDiary";
-import { useNavigate } from "react-router-dom";
+import React, { useRef } from 'react';
+import '../../assets/styles/main.scss';
+import TitleBar from '../../Components/TitleBar/TitleBar';
+import { auth } from '../../Components/Functions/AuthDiary';
+import { useNavigate } from 'react-router-dom';
 export const Auth = () => {
   const login = useRef(null);
   const password = useRef(null);
   const navigate = useNavigate();
   return (
     <div className="wrapper">
-      <NavBar />
+      <TitleBar />
       <div className="auth">
         <div className="form">
           <div className="title">
@@ -41,7 +41,7 @@ export const Auth = () => {
                 if (isAuthenticated) {
                   // navigate("/");
                 } else {
-                  alert("Неверный логин или пароль");
+                  alert('Неверный логин или пароль');
                 }
               }
             }}

@@ -5,6 +5,18 @@
   flex-direction: column;
   gap: 10px;
   width: 90%;
+  .schoolSubject_notData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #293a59;
+    color: #fff;
+    padding: 15px 15px;
+    border-radius: 7px;
+    width: 50%;
+    gap: 10px;
+    opacity: 0.5;
+  }
 
   .schoolSubject {
     background-color: #293a59;
