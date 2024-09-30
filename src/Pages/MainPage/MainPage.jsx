@@ -3,6 +3,7 @@ import TitleBar from '../../Components/TitleBar/TitleBar';
 import '../../Components/styles/index.scss';
 import { GetGradeUser } from '../../Components/Functions/requestProfile';
 import NavBar from '../../Components/NavBar/NavBar';
+import { mark } from '../../Components/NavBar/svg';
 
 const MainPage = () => {
   const [marks, setMarks] = useState({});
@@ -35,13 +36,26 @@ const MainPage = () => {
   return (
     <>
       <div className="wrapper">
-        <TitleBar />
+        <div className="window_info_user">
+          <div className="left">
+            <div className="img">ЯК</div>
+          </div>
+          <div className="right">
+            <p className="name_user">Коваленко Ярослава</p>
+            <span>онлайн</span>
+          </div>
+        </div>
         <div className="list_schoolSubject">
           {marks.length > 0 ? (
-            marks.map((subject) => (
-              <div className="schoolSubject" key={subject.id}>
-                <p>{formatNameAbbreviate(subject.name)}</p>
-                <span>{subject.mark}</span>
+            marks.map((subject, index) => (
+              <div className="schoolSubject" key={index++}>
+                <div className="left">
+                  <div className="svg-mark">{mark()}</div>
+                  <p>{formatNameAbbreviate(subject.name)}</p>
+                </div>
+                <div className="right">
+                  <p>{subject.mark}</p>
+                </div>
               </div>
             ))
           ) : (
@@ -50,7 +64,6 @@ const MainPage = () => {
             </div>
           )}
         </div>
-        <NavBar />
       </div>
     </>
   );

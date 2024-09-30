@@ -1,52 +1,138 @@
-.list_schoolSubject {
+.wrapper {
+  background-color: #111111;
+  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 520px;
   flex-direction: column;
-  gap: 10px;
-  width: 90%;
-  .schoolSubject_notData {
+  align-items: center;
+  position: relative;
+  justify-content: start;
+  gap: 20px;
+
+  .window_info_user {
+    margin-top: 20px;
+    background-color: #181818;
+    width: 80%;
+    padding: 15px;
+    color: #fff;
+    border-radius: 6.52px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: #293a59;
-    color: #fff;
-    padding: 15px 15px;
-    border-radius: 7px;
-    width: 50%;
     gap: 10px;
-    opacity: 0.5;
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      .img {
+        width: 50px;
+        height: 50px;
+        background-color: #181818;
+        border: 2px solid #3173a5;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #293a59;
+        font-weight: 600;
+      }
+    }
+
+    .right {
+      gap: 2px;
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      span {
+        font-size: 14px;
+        color: #9d9d9d;
+      }
+    }
   }
 
-  .schoolSubject {
-    background-color: #293a59;
+  .list_schoolSubject {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 15px;
-    border-radius: 7px;
-    width: 100%;
+    flex-direction: column;
     gap: 10px;
-    position: relative;
-
-    span {
+    width: 80%;
+    .schoolSubject_notData {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #3d517a;
-      padding: 5px 15px;
-      width: 50px;
+      background-color: #293a59;
       color: #fff;
-      font-size: 18px;
-      font-weight: 600;
-      border-radius: 10px;
-      position: absolute;
-      left: 10px;
+      padding: 15px 15px;
+      border-radius: 7px;
+      width: 50%;
+      gap: 10px;
+      opacity: 0.5;
     }
 
-    p {
-      color: #fff;
-      font-weight: 600;
+    .schoolSubject {
+      background-color: #181818;
+      width: 100%;
+      border-radius: 5.62px;
+      display: flex;
+      padding: 10px 10px;
+      justify-content: space-between;
+      transition: 0.2s ease-in-out;
+      cursor: pointer;
+      border: 1px solid transparent;
+
+      &:hover {
+        background-color: #202020;
+        transition: 0.2s ease-in-out;
+        border: 1px solid #3173a5;
+      }
+
+      .left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .svg-mark {
+          svg {
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+
+        p {
+          color: #3173a5;
+        }
+      }
+
+      span {
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // background-color: #3d517a;
+        // padding: 5px 15px;
+        // width: 50px;
+        // color: #fff;
+        // font-size: 18px;
+        // font-weight: 600;
+        // border-radius: 10px;
+        // left: 10px;
+      }
+
+      p {
+        color: #fff;
+        font-weight: 600;
+      }
     }
   }
 }

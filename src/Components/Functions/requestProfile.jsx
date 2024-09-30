@@ -16,7 +16,7 @@ export const GetGradeUser = async (user_id) => {
       })
       .join('; ');
 
-    const response = await axios.post('http://localhost:3000/profile', {
+    const response = await axios.post('http://localhost:3001/profile', {
       token: filteredCookies,
       studentId: user_id,
     });

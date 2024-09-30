@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
-import "../../assets/styles/main.scss";
-import TitleBar from "../../Components/TitleBar/TitleBar";
-import { auth } from "../../Components/Functions/AuthDiary";
-import { useNavigate } from "react-router-dom";
+import React, { useRef } from 'react';
+import '../../assets/styles/main.scss';
+import TitleBar from '../../Components/TitleBar/TitleBar';
+import { auth } from '../../Components/Functions/AuthDiary';
+import { useNavigate } from 'react-router-dom';
 export const Auth = () => {
   const login = useRef(null);
   const password = useRef(null);
@@ -11,7 +11,9 @@ export const Auth = () => {
     <div className="wrapper">
       <div className="auth">
         <div className="form">
-          <div className="title">{/* <h2>Авторизация</h2> */}</div>
+          <div className="title">
+            <h2>CHPK Diary</h2>
+          </div>
           <div className="inputs">
             <input
               type="text"
@@ -40,9 +42,9 @@ export const Auth = () => {
                   password.current.value
                 );
                 if (isAuthenticated) {
-                  navigate("/");
+                  navigate('/');
                 } else {
-                  alert("Неверный логин или пароль");
+                  alert('Неверный логин или пароль');
                 }
               }
             }}
