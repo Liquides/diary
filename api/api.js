@@ -67,7 +67,7 @@ app.post('/profile', async (req, res) => {
     );
 
     const dashboardResponse = await axios.get(
-      `https://poo.zabedu.ru/services/students/${req.body.studentId}/dashboard`,
+      `https://poo.zabedu.ru/services/reports/current/performance/${req.body.studentId}`,
       {
         headers: {
           cookie: req.body.token,
@@ -78,7 +78,7 @@ app.post('/profile', async (req, res) => {
 
     return res.json({
       account: accountResponse.data,
-      dashboard: dashboardResponse.data,
+      table: dashboardResponse.data,
     });
   } catch (error) {
     console.error('Error:', error);
