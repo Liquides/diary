@@ -7,6 +7,7 @@ import { mark } from '../../Components/NavBar/svg';
 
 const MainPage = () => {
   const [marks, setMarks] = useState({});
+  const [info, setInfo] = useState({});
   const formatNameAbbreviate = (name) => {
     const nameParts = name.split(' ');
     if (nameParts.length > 2) {
@@ -22,7 +23,8 @@ const MainPage = () => {
     const fetchMarks = async () => {
       try {
         GetGradeUser(localStorage.getItem('studentId')).then((result) => {
-          setMarks(result.subjects);
+          setMarks(result.dashboard);
+          setInfo(result.account.persons);
           console.log(marks);
         });
       } catch (error) {
@@ -35,20 +37,25 @@ const MainPage = () => {
 
   return (
     <>
-      <div className="wrapper">
+      <div className="wrapper auth_wrapper">
         <div className="window_info_user">
           <div className="left">
-            <div className="img">ЯК</div>
+            <div className="img">
+              {info[0]?.firstName.charAt(0)}
+              {info[0]?.lastName.charAt(0)}
+            </div>
           </div>
           <div className="right">
-            <p className="name_user">Коваленко Ярослава</p>
+            <p className="name_user">
+              {info[0]?.firstName} {info[0]?.lastName}
+            </p>
             <span>онлайн</span>
           </div>
         </div>
         <div className="list_schoolSubject">
-          {marks.length > 0 ? (
-            marks.map((subject, index) => (
-              <div className="schoolSubject" key={index++}>
+          {marks.subjects && marks.subjects.length > 0 ? (
+            marks.subjects.map((subject, index) => (
+              <div className="schoolSubject" key={index}>
                 <div className="left">
                   <div className="svg-mark">{mark()}</div>
                   <p>{formatNameAbbreviate(subject.name)}</p>

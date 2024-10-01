@@ -56,7 +56,17 @@ app.post('/auth', async (req, res) => {
 });
 app.post('/profile', async (req, res) => {
   try {
-    const response = await axios.get(
+    const accountResponse = await axios.get(
+      'https://poo.zabedu.ru/services/security/account-settings',
+      {
+        headers: {
+          cookie: req.body.token,
+        },
+        withCredentials: true,
+      }
+    );
+
+    const dashboardResponse = await axios.get(
       `https://poo.zabedu.ru/services/students/${req.body.studentId}/dashboard`,
       {
         headers: {
@@ -65,7 +75,11 @@ app.post('/profile', async (req, res) => {
         withCredentials: true,
       }
     );
-    return res.json(response.data);
+
+    return res.json({
+      account: accountResponse.data,
+      dashboard: dashboardResponse.data,
+    });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Не удалось получить профиль' });

@@ -1,12 +1,22 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import '../../assets/styles/main.scss';
 import TitleBar from '../../Components/TitleBar/TitleBar';
 import { auth } from '../../Components/Functions/AuthDiary';
 import { useNavigate } from 'react-router-dom';
+import { info } from '../../Components/NavBar/svg';
 export const Auth = () => {
   const login = useRef(null);
   const password = useRef(null);
   const navigate = useNavigate();
+  const [err, setErr] = useState(false);
+  const errRef = useRef(null);
+
+  const errMessageView = ({ type }) => {
+    if (type === 'auth') {
+      setErr(true);
+    }
+  };
+
   return (
     <div className="wrapper">
       <div className="auth">
@@ -32,6 +42,12 @@ export const Auth = () => {
               <label htmlFor="check">Запомнить меня</label>
             </div>
           </div>
+          {err && (
+            <div className="errorMessage" ref={errRef}>
+              {info()}
+              <span>Заполните все поля</span>
+            </div>
+          )}
         </div>
         <div className="auth_button">
           <button
@@ -46,6 +62,8 @@ export const Auth = () => {
                 } else {
                   alert('Неверный логин или пароль');
                 }
+              } else {
+                errMessageView({ type: 'auth' });
               }
             }}
           >
