@@ -127,7 +127,7 @@ body {
           appearance: none;
           width: 5px;
           height: 5px;
-          border: 2px solid #3173a5;
+          border: 2px solid #4a4a4a;
           border-radius: 4px;
           cursor: pointer;
           position: relative;
@@ -137,6 +137,11 @@ body {
 
           &:checked {
             background-color: #3173a5;
+            border: 2px solid #3173a5;
+          }
+
+          &:focus {
+            border: 2px solid #3173a5;
           }
 
           &:checked::after {
@@ -147,7 +152,7 @@ body {
             transform: translate(-50%, -50%) rotate(45deg);
             width: 4px;
             height: 10px;
-            border: solid #fff;
+            border: 2px solid #fff;
             border-width: 0 2px 2px 0;
           }
         }
@@ -169,6 +174,7 @@ body {
       display: flex;
 
       button {
+        cursor: pointer;
         width: 100%;
         border-radius: 10px;
         padding: 10px;

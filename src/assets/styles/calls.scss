@@ -1,0 +1,152 @@
+.windowCalls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 90%;
+
+  .days {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    .day {
+      display: flex;
+      flex-direction: column;
+      background-color: #181818;
+      width: 100%;
+      border-radius: 6.52px;
+      padding: 15px;
+      gap: 20px;
+
+      .title {
+        color: #fff;
+        font-weight: 600;
+        padding: 5px 15px;
+      }
+
+      .callsList {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 15px;
+        flex-direction: column;
+
+        .noCalls {
+          width: 100%;
+          background-color: #1c1c1c;
+          font-size: 22px;
+          color: #fff;
+          border-radius: 6.52px;
+          height: 150px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .object {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          .call {
+            background-color: #1c1c1c;
+            display: flex;
+            align-items: center;
+            padding: 15px 10px;
+            gap: 10px;
+            border-radius: 6.52px;
+            width: 100%;
+            position: relative;
+
+            .timer {
+              content: '';
+              transition: 0.2s ease;
+              width: 50%;
+              height: 2px;
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              padding: 1px;
+              z-index: 1001;
+              border-radius: 50px;
+            }
+
+            &.noLesson {
+              opacity: 0.5;
+            }
+
+            .id {
+              color: #3173a5;
+              font-size: 18px;
+              font-weight: 600;
+            }
+
+            .nameObject {
+              color: #fff;
+              font-size: 14px;
+              font-weight: 600;
+
+              &.noLesson {
+                color: #777777;
+              }
+            }
+
+            .timeToCall {
+              font-size: 14px;
+              color: #777777;
+            }
+          }
+
+          .dotPoint {
+            width: 10px;
+            height: 10px;
+            background-color: #3173a5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6.52px;
+            margin: 10px;
+
+            &.noLesson {
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+    .buttonsChangeDay {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 10px;
+
+      button {
+        background-color: #181818;
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        padding: 10px;
+        border-radius: 6.52px;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.2s;
+        border: 1px solid transparent;
+
+        &:hover {
+          background-color: #252525;
+          transition: all 0.2s;
+        }
+
+        &:active {
+          background-color: #3173a5;
+          transition: all 0.2s;
+        }
+      }
+    }
+  }
+}

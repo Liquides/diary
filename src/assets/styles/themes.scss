@@ -1,0 +1,127 @@
+.wrapper {
+  background-color: var(--bg-color);
+  .auth .form .check {
+    label {
+      color: var(--text-color);
+    }
+    input[type='checkbox']:checked + label {
+      color: var(--text-color);
+    }
+
+    label {
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  }
+  .windowDiary {
+    .window_info_user {
+      background-color: var(--double-color);
+      .left {
+        .img {
+          background-color: var(--bg-color);
+          color: 000;
+        }
+      }
+      .right {
+        .name_user {
+          color: var(--text-color);
+        }
+      }
+    }
+    .list_schoolSubject {
+      .schoolSubject {
+        background-color: var(--double-color);
+        .topMark {
+          .left {
+            .svg-mark {
+              svg {
+                path {
+                  fill: var(--bg-color);
+                }
+              }
+            }
+            p.iconSubject {
+              color: var(--text-color);
+            }
+          }
+        }
+        .bottomMarks {
+          .listMarks {
+            .mark {
+              background-color: var(--bg-color);
+            }
+          }
+        }
+      }
+    }
+  }
+  .windowCalls {
+    .days {
+      .day {
+        background-color: var(--double-color);
+        .title {
+          color: var(--text-color);
+        }
+        .callsList {
+          .object {
+            .call {
+              background-color: var(--bg-color);
+              .nameObject {
+                color: var(--text-color);
+              }
+            }
+          }
+        }
+      }
+      .buttonsChangeDay {
+        button {
+          background-color: var(--double-color);
+          color: var(--text-color);
+
+          &:hover {
+            background-color: var(--window-blur);
+          }
+        }
+      }
+    }
+  }
+
+  .windowBlur {
+    background-color: var(--window-blur);
+
+    .modal {
+      background-color: var(--double-color);
+
+      .contentModal .titleContent .choiceThemes .theme p.nameTheme {
+        color: var(--text-color);
+      }
+    }
+  }
+
+  .navBar {
+    background-color: var(--navBar-color);
+    .bar {
+      background-color: var(--bg-color);
+    }
+    .palette {
+      background-color: var(--bg-color);
+    }
+  }
+}
+
+body.light {
+  --bg-color: #fff;
+  --double-color: #e7e7e7;
+  --navBar-color: #e0e0e0;
+  --text-color: #000;
+  --window-blur: rgba(136, 136, 136, 0.659);
+}
+body.dark {
+  --bg-color: #111111;
+  --double-color: #181818;
+  --text-color: #fff;
+  --navBar-color: #181818;
+  --window-blur: rgba(0, 0, 0, 0.6588235294);
+}

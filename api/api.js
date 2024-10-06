@@ -85,6 +85,24 @@ app.post('/profile', async (req, res) => {
     res.status(500).json({ error: 'Не удалось получить профиль' });
   }
 });
+app.post('/calls', async (req, res) => {
+  try {
+    const nowFormatDate = new Date().toISOString().slice(0, 10);
+    const response = await fetch(
+      `https://poo.zabedu.ru/services/students/${req.body.studentId}/lessons/${nowFormatDate}/${nowFormatDate}`,
+      {
+        headers: {
+          cookie: req.body.token,
+        },
+        withCredentials: true,
+      }
+    );
+    return res.json(await response.json());
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Не удалось получить расписание' });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

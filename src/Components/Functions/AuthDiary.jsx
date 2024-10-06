@@ -19,8 +19,10 @@ export const auth = async (login, password) => {
           .replace('httponly', '')
           .replace('secure', '')
           .trim();
-        console.log(`Setting cookie ${index + 1}:`, cookie);
       });
+
+      localStorage.setItem('login', login);
+      localStorage.setItem('password', password);
 
       return true;
     }

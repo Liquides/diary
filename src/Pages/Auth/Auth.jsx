@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../../assets/styles/main.scss';
 import TitleBar from '../../Components/TitleBar/TitleBar';
 import { auth } from '../../Components/Functions/AuthDiary';
@@ -11,6 +11,13 @@ export const Auth = () => {
   const [err, setErr] = useState(false);
   const errRef = useRef(null);
 
+  useEffect(() => {
+    const themeType = localStorage.getItem('theme');
+    const accentColor = localStorage.getItem('accent_color');
+
+    document.querySelector('body').classList.add(themeType);
+    document.querySelector('body').classList.add(accentColor);
+  }, []);
   const errMessageView = ({ type }) => {
     if (type === 'auth') {
       setErr(true);
@@ -58,7 +65,7 @@ export const Auth = () => {
                   password.current.value
                 );
                 if (isAuthenticated) {
-                  navigate('/');
+                  navigate('/diary');
                 } else {
                   alert('Неверный логин или пароль');
                 }

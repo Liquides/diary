@@ -1,0 +1,229 @@
+body {
+  &.red,
+  &.green,
+  &.default,
+  &.yellow,
+  &.pink {
+    transition: linear 5s ease-in-out;
+    .wrapper {
+      .auth {
+        .form {
+          .inputs {
+            input {
+              &:focus {
+                border: 1px solid var(--color);
+              }
+            }
+          }
+          .check {
+            input[type='checkbox'] {
+              border: 2px solid #4a4a4a;
+              transition: 0.2s ease;
+
+              &:checked {
+                background-color: var(--color);
+                border: 2px solid var(--color);
+              }
+
+              &:focus {
+                border: 2px solid var(--color);
+              }
+            }
+          }
+        }
+        .auth_button button {
+          background-color: var(--color);
+        }
+        .title h2 {
+          background-color: var(--color);
+        }
+      }
+      .windowDiary {
+        .window_info_user {
+          .designIconsProfile {
+            svg {
+              path {
+                fill: var(--color-opacity);
+              }
+            }
+          }
+          &:hover {
+            box-shadow: inset 0 0 5px var(--color) 50;
+            transition: 0.2s ease-in-out;
+            border: 1px solid var(--color);
+            cursor: pointer;
+          }
+          .left {
+            .img {
+              border: 2px solid var(--color);
+              color: var(--color-opacity);
+            }
+          }
+        }
+      }
+      .windowBlur {
+        .modal {
+          .titleModal {
+            color: var(--color);
+          }
+          .contentModal {
+            .titleContent {
+              h4 {
+                color: var(--color-opacity);
+              }
+
+              .line {
+                background-color: var(--color-opacity);
+              }
+
+              .choiceThemes {
+                .theme {
+                  .previewTheme {
+                    &.active {
+                      outline: 2px solid var(--color);
+                    }
+                  }
+                }
+              }
+              .choiceDesign {
+                .designIcon {
+                  svg {
+                    path {
+                      fill: var(--color);
+                    }
+                  }
+                  &.active {
+                    outline: 2px solid var(--color);
+                    background-color: var(--color-opacity);
+                  }
+                }
+              }
+            }
+          }
+          .buttonCloseModal {
+            background-color: var(--color);
+          }
+        }
+      }
+      .list_schoolSubject {
+        .schoolSubject {
+          .topMark {
+            .left {
+              .svg-mark {
+                background-color: var(--color);
+              }
+            }
+            .right {
+              p {
+                color: var(--color);
+              }
+            }
+          }
+          .bottomMarks {
+            .listMarks {
+              .mark {
+                p {
+                  span {
+                    color: var(--color);
+                  }
+
+                  p.dateMark {
+                    color: var(--color-opacity);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .windowCalls {
+        .days {
+          .day {
+            .callsList {
+              .object {
+                .call {
+                  .timer {
+                    background-color: var(--color);
+                  }
+                  .id {
+                    color: var(--color);
+                  }
+                }
+
+                .dotPoint {
+                  background-color: var(--color);
+                }
+              }
+            }
+          }
+        }
+        .buttonsChangeDay {
+          button {
+            &:active {
+              background-color: var(--color);
+            }
+          }
+        }
+      }
+
+      .errorMessage {
+        svg {
+          path {
+            fill: var(--color);
+          }
+        }
+      }
+    }
+    .navBar {
+      .bar {
+        color: var(--color);
+        svg {
+          path {
+            fill: var(--color);
+          }
+        }
+        &.active {
+          background-color: var(--color);
+          color: #fff;
+          svg {
+            path {
+              fill: #fff;
+            }
+          }
+        }
+      }
+      .palette {
+        svg {
+          path {
+            fill: var(--color);
+          }
+        }
+      }
+    }
+  }
+}
+
+body.red {
+  --color: #e74c3c;
+  --color-opacity: #e74d3c6e;
+}
+
+body.green {
+  --color: #00913c;
+  --color-opacity: #00913c6e;
+}
+
+body.default {
+  --color: #3584c0;
+  --color-opacity: #3584c06e;
+}
+
+body.yellow {
+  --color: #f1c40f;
+  --color-opacity: #f1c40f6e;
+}
+
+body.pink {
+  --color: #c042b6;
+  --color-opacity: #c042b66e;
+}

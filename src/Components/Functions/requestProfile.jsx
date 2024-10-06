@@ -1,4 +1,5 @@
 import axios from 'axios';
+import ReAuth from '../ReAuth/ReAuth';
 
 export const GetGradeUser = async (user_id) => {
   try {
@@ -27,6 +28,7 @@ export const GetGradeUser = async (user_id) => {
       return response.data;
     }
   } catch (error) {
+    ReAuth();
     console.error('Error fetching user grade:', error);
     throw error;
   }

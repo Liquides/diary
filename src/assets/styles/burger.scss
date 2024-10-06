@@ -1,0 +1,33 @@
+.burgerWindow {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background-color: #000000a8;
+  display: flex;
+
+  .menuTop {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 70%;
+    background-color: #181818;
+    border-radius: 0px 10px 10px 0px;
+
+    .pages {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      a {
+        background-color: #1c1c1c;
+        padding: 10px 15px;
+        color: #3173a5;
+        border-radius: 6.52px;
+        margin-top: 10px;
+        text-decoration: none;
+      }
+    }
+  }
+}
