@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import '../styles/navBar.scss';
+import React, { useState } from "react";
+import "../styles/navBar.scss";
 import {
   svgHome,
   svgCalendar,
@@ -8,9 +8,9 @@ import {
   clock,
   book,
   palette,
-} from './svg';
-import { NavLink } from 'react-router-dom';
-import Modal from '../Modal/Modal';
+} from "./svg";
+import { NavLink } from "react-router-dom";
+import Modal from "../Modal/Modal";
 
 const NavBar = ({ themeToggle }) => {
   const [modal, setModal] = useState(false);
@@ -29,15 +29,16 @@ const NavBar = ({ themeToggle }) => {
         setState={setModal}
         isAnimating={isAnimating}
         setIsAnimating={setIsAnimating}
+        type={"customization"}
       />
       <div className="navBar">
-        <NavLink to={'/calls'} className="bar">
+        <NavLink to={"/calls"} className="bar">
           {clock()} Расписание
         </NavLink>
         <div className="palette" onClick={openModal}>
           {palette()}
         </div>
-        <NavLink to={'/diary'} className="bar">
+        <NavLink to={"/diary"} className="bar">
           {book()} Дневник
         </NavLink>
       </div>

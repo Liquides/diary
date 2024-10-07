@@ -1,18 +1,25 @@
 .wrapper {
   background-color: var(--bg-color);
-  .auth .form .check {
-    label {
-      color: var(--text-color);
+  .auth .form {
+    .inputs {
+      input {
+        color: var(--text-color);
+      }
     }
-    input[type='checkbox']:checked + label {
-      color: var(--text-color);
-    }
+    .check {
+      label {
+        color: var(--text-color);
+      }
+      input[type="checkbox"]:checked + label {
+        color: var(--text-color);
+      }
 
-    label {
-      cursor: pointer;
-      color: var(--text-color);
-      font-size: 14px;
-      margin-left: 10px;
+      label {
+        cursor: pointer;
+        color: var(--text-color);
+        font-size: 14px;
+        margin-left: 10px;
+      }
     }
   }
   .windowDiary {
