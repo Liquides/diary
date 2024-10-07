@@ -10,12 +10,15 @@
   position: absolute;
   bottom: 0;
 
+  justify-content: center;
+
   .palette {
     background-color: #1c1c1c;
     padding: 5px 10px;
     border-radius: 6.52px;
     cursor: pointer;
     transition: 0.5s;
+    padding: 5px 25px;
 
     &:active {
       background-color: #3173a5;

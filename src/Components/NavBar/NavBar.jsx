@@ -12,7 +12,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import Modal from '../Modal/Modal';
 
-const NavBar = ({ themeToggle }) => {
+const NavBar = ({ themeToggle, left, center, right }) => {
   const [modal, setModal] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -34,7 +34,7 @@ const NavBar = ({ themeToggle }) => {
         <NavLink to={'/calls'} className="bar">
           {clock()} Расписание
         </NavLink>
-        <div className="palette" onClick={openModal}>
+        <div className={'palette'} onClick={openModal}>
           {palette()}
         </div>
         <NavLink to={'/diary'} className="bar">

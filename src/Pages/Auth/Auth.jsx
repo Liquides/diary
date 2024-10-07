@@ -4,6 +4,7 @@ import TitleBar from '../../Components/TitleBar/TitleBar';
 import { auth } from '../../Components/Functions/AuthDiary';
 import { useNavigate } from 'react-router-dom';
 import { info } from '../../Components/NavBar/svg';
+import NavBar from '../../Components/NavBar/NavBar';
 export const Auth = () => {
   const login = useRef(null);
   const password = useRef(null);
@@ -78,6 +79,7 @@ export const Auth = () => {
           </button>
         </div>
       </div>
+      {/* <NavBar left={false} center={true} right={false} /> */}
     </div>
   );
 };
