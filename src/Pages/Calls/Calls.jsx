@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import NavBar from '../../Components/NavBar/NavBar';
-import '../../assets/styles/calls.scss';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import NavBar from "../../Components/NavBar/NavBar";
+import "../../assets/styles/calls.scss";
+import axios from "axios";
 
-import '../../assets/styles/colors.scss';
-import '../../assets/styles/themes.scss';
+import "../../assets/styles/colors.scss";
+import "../../assets/styles/themes.scss";
 
 const Calls = () => {
   const [calls, setCalls] = useState([]);
   let [time, setTime] = useState(15);
 
   useEffect(() => {
-    document.querySelector('body').classList.add(localStorage.getItem('theme'));
+    document.querySelector("body").classList.add(localStorage.getItem("theme"));
     document
-      .querySelector('body')
-      .classList.add(localStorage.getItem('accent_color'));
+      .querySelector("body")
+      .classList.add(localStorage.getItem("accent_color"));
   }, []);
 
   useEffect(() => {
@@ -22,20 +22,20 @@ const Calls = () => {
       try {
         const cookies = document.cookie;
         const allowedCookieKeys = [
-          '.AspNetCore.Culture',
-          '.AspNetCore.Session',
-          '.AspNetCore.Cookies',
+          ".AspNetCore.Culture",
+          ".AspNetCore.Session",
+          ".AspNetCore.Cookies",
         ];
         const filteredCookies = cookies
-          .split(';')
+          .split(";")
           .filter((cookie) => {
-            const [key] = cookie.split('=');
+            const [key] = cookie.split("=");
             return allowedCookieKeys.includes(key.trim());
           })
-          .join('; ');
-        const response = await axios.post('http://localhost:3001/calls', {
+          .join("; ");
+        const response = await axios.post("http://localhost:3001/calls", {
           token: filteredCookies,
-          studentId: localStorage.getItem('studentId'),
+          studentId: localStorage.getItem("studentId"),
         });
 
         if (response.data?.error) {
@@ -67,63 +67,63 @@ const Calls = () => {
   const formatDate = ({ dateString, day }) => {
     const formatDate = new Date(dateString);
 
-    const dayWeek = formatDate.toLocaleString('ru-RU', {
-      weekday: 'long',
+    const dayWeek = formatDate.toLocaleString("ru-RU", {
+      weekday: "long",
     });
 
     const formatWeek = {
-      понедельник: 'ПН',
-      вторник: 'ВТ',
-      среда: 'СР',
-      четверг: 'ЧТ',
-      пятница: 'ПТ',
-      суббота: 'СБ',
-      воскресенье: 'ВС',
+      понедельник: "ПН",
+      вторник: "ВТ",
+      среда: "СР",
+      четверг: "ЧТ",
+      пятница: "ПТ",
+      суббота: "СБ",
+      воскресенье: "ВС",
     };
 
     const formatMonth = {
-      январь: 'Января',
-      февраль: 'Февраля',
-      март: 'Марта',
-      апрель: 'Апреля',
-      май: 'Мая',
-      июнь: 'Июня',
-      июль: 'Июля',
-      август: 'Августа',
-      сентябрь: 'Сентября',
-      октябрь: 'Октября',
-      ноябрь: 'Ноября',
-      декабрь: 'Декабря',
+      январь: "Января",
+      февраль: "Февраля",
+      март: "Марта",
+      апрель: "Апреля",
+      май: "Мая",
+      июнь: "Июня",
+      июль: "Июля",
+      август: "Августа",
+      сентябрь: "Сентября",
+      октябрь: "Октября",
+      ноябрь: "Ноября",
+      декабрь: "Декабря",
     };
 
     console.log(
-      formatDate.toLocaleString('ru-RU', {
-        month: 'long',
+      formatDate.toLocaleString("ru-RU", {
+        month: "long",
       })
     );
 
     if (day) {
       return `${formatWeek[dayWeek]} - ${
         parseInt(
-          formatDate.toLocaleString('ru-RU', {
-            day: 'numeric',
+          formatDate.toLocaleString("ru-RU", {
+            day: "numeric",
           })
         ) + day
       } ${
         formatMonth[
-          formatDate.toLocaleString('ru-RU', {
-            month: 'long',
+          formatDate.toLocaleString("ru-RU", {
+            month: "long",
           })
         ]
       }`;
     }
 
-    return `${formatWeek[dayWeek]} - ${formatDate.toLocaleString('ru-RU', {
-      day: 'numeric',
+    return `${formatWeek[dayWeek]} - ${formatDate.toLocaleString("ru-RU", {
+      day: "numeric",
     })} ${
       formatMonth[
-        formatDate.toLocaleString('ru-RU', {
-          month: 'long',
+        formatDate.toLocaleString("ru-RU", {
+          month: "long",
         })
       ]
     }`;
@@ -134,7 +134,7 @@ const Calls = () => {
       <div className="wrapper">
         <div className="windowCalls">
           <div className="days">
-            <div className="day">
+            {/* <div className="day">
               <div className="title">
                 {formatDate({ dateString: calls?.[0]?.date })}
               </div>
@@ -167,14 +167,14 @@ const Calls = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
             <div className="buttonsChangeDay">
               <button>
-                {' '}
+                {" "}
                 {formatDate({ dateString: calls?.[0]?.date, day: -1 })}
               </button>
               <button>
-                {' '}
+                {" "}
                 {formatDate({ dateString: calls?.[0]?.date, day: +1 })}
               </button>
             </div>

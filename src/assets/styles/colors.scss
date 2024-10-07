@@ -16,7 +16,7 @@ body {
             }
           }
           .check {
-            input[type='checkbox'] {
+            input[type="checkbox"] {
               border: 2px solid #4a4a4a;
               transition: 0.2s ease;
 
@@ -206,24 +206,39 @@ body {
 body.red {
   --color: #e74c3c;
   --color-opacity: #e74d3c6e;
+  --preloader-color-1: #e74c3c1a;
+  --preloader-color-2: #e74c3c26;
+  --preloader-color-3: #e74c3c1a;
 }
 
 body.green {
   --color: #00913c;
   --color-opacity: #00913c6e;
+  --preloader-color-1: #00913c1a;
+  --preloader-color-2: #00913c26;
+  --preloader-color-3: #00913c1a;
 }
 
 body.default {
   --color: #3584c0;
   --color-opacity: #3584c06e;
+  --preloader-color-1: #3584c01a;
+  --preloader-color-2: #3584c026;
+  --preloader-color-3: #3584c01a;
 }
 
 body.yellow {
   --color: #f1c40f;
   --color-opacity: #f1c40f6e;
+  --preloader-color-1: #f1c40f1a;
+  --preloader-color-2: #f1c40f26;
+  --preloader-color-3: #f1c40f1a;
 }
 
 body.pink {
   --color: #c042b6;
-  --color-opacity: #c042b66e;
+  --color-opacity: #c042b61a;
+  --preloader-color-1: #c042b61a;
+  --preloader-color-2: #c042b626;
+  --preloader-color-3: #c042b61a;
 }

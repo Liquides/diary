@@ -1,0 +1,58 @@
+.wrapper .windowDiary .list_schoolSubject .schoolSubject {
+  &.preload {
+    animation: shimmer 1.5s infinite linear;
+    background: linear-gradient(
+      to right,
+      var(--preloader-color-1),
+      var(--preloader-color-2),
+      var(--preloader-color-3)
+    );
+    background-size: 1000px 100%;
+
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+
+    .topMark .left {
+      .svg-mark {
+        background-color: var(--color);
+        width: 70px;
+        animation: blink-animation 1s infinite;
+      }
+      animation: blink-animation 1s infinite;
+      @keyframes blink-animation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .iconSubject {
+        background-color: var(--color);
+        height: 10px;
+        width: 100%;
+        border-radius: 6.52px;
+        padding: 5px 50px;
+        animation: shimmer 1s infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: -1000px 0;
+        }
+        100% {
+          background-position: 1000px 0;
+        }
+      }
+    }
+  }
+}
