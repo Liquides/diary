@@ -3,7 +3,10 @@ body {
   &.green,
   &.default,
   &.yellow,
-  &.pink {
+  &.pink,
+  &.orange,
+  &.purple,
+  &.blue {
     transition: linear 5s ease-in-out;
     .wrapper {
       .auth {
@@ -16,7 +19,7 @@ body {
             }
           }
           .check {
-            input[type="checkbox"] {
+            input[type='checkbox'] {
               border: 2px solid #4a4a4a;
               transition: 0.2s ease;
 
@@ -204,41 +207,65 @@ body {
 }
 
 body.red {
-  --color: #e74c3c;
-  --color-opacity: #e74d3c6e;
-  --preloader-color-1: #e74c3c1a;
-  --preloader-color-2: #e74c3c26;
-  --preloader-color-3: #e74c3c1a;
+  --color: rgb(231, 76, 60);
+  --color-opacity: rgba(231, 76, 60, 0.43);
+  --preloader-color-1: rgba(231, 76, 60, 0.1);
+  --preloader-color-2: rgba(231, 76, 60, 0.15);
+  --preloader-color-3: rgba(231, 76, 60, 0.1);
 }
 
 body.green {
-  --color: #00913c;
-  --color-opacity: #00913c6e;
-  --preloader-color-1: #00913c1a;
-  --preloader-color-2: #00913c26;
-  --preloader-color-3: #00913c1a;
+  --color: rgb(0, 145, 60);
+  --color-opacity: rgba(0, 145, 60, 0.43);
+  --preloader-color-1: rgba(0, 145, 60, 0.1);
+  --preloader-color-2: rgba(0, 145, 60, 0.15);
+  --preloader-color-3: rgba(0, 145, 60, 0.1);
 }
 
 body.default {
-  --color: #3584c0;
-  --color-opacity: #3584c06e;
-  --preloader-color-1: #3584c01a;
-  --preloader-color-2: #3584c026;
-  --preloader-color-3: #3584c01a;
+  --color: rgb(53, 132, 192);
+  --color-opacity: rgba(53, 132, 192, 0.43);
+  --preloader-color-1: rgba(53, 132, 192, 0.1);
+  --preloader-color-2: rgba(53, 132, 192, 0.15);
+  --preloader-color-3: rgba(53, 132, 192, 0.1);
 }
 
 body.yellow {
-  --color: #f1c40f;
-  --color-opacity: #f1c40f6e;
-  --preloader-color-1: #f1c40f1a;
-  --preloader-color-2: #f1c40f26;
-  --preloader-color-3: #f1c40f1a;
+  --color: rgb(241, 196, 15);
+  --color-opacity: rgba(241, 196, 15, 0.43);
+  --preloader-color-1: rgba(241, 196, 15, 0.1);
+  --preloader-color-2: rgba(241, 196, 15, 0.15);
+  --preloader-color-3: rgba(241, 196, 15, 0.1);
 }
 
 body.pink {
-  --color: #c042b6;
-  --color-opacity: #c042b61a;
-  --preloader-color-1: #c042b61a;
-  --preloader-color-2: #c042b626;
-  --preloader-color-3: #c042b61a;
+  --color: rgb(192, 66, 182);
+  --color-opacity: rgba(192, 66, 182, 0.1);
+  --preloader-color-1: rgba(192, 66, 182, 0.1);
+  --preloader-color-2: rgba(192, 66, 182, 0.15);
+  --preloader-color-3: rgba(192, 66, 182, 0.1);
+}
+
+body.purple {
+  --color: rgb(155, 89, 182);
+  --color-opacity: rgba(155, 89, 182, 0.1);
+  --preloader-color-1: rgba(155, 89, 182, 0.1);
+  --preloader-color-2: rgba(155, 89, 182, 0.15);
+  --preloader-color-3: rgba(155, 89, 182, 0.1);
+}
+
+body.orange {
+  --color: rgb(230, 126, 34);
+  --color-opacity: rgba(230, 126, 34, 0.1);
+  --preloader-color-1: rgba(230, 126, 34, 0.1);
+  --preloader-color-2: rgba(230, 126, 34, 0.15);
+  --preloader-color-3: rgba(230, 126, 34, 0.1);
+}
+
+body.blue {
+  --color: rgb(52, 83, 219);
+  --color-opacity: rgba(52, 96, 219, 0.1);
+  --preloader-color-1: rgba(52, 152, 219, 0.1);
+  --preloader-color-2: rgba(52, 152, 219, 0.15);
+  --preloader-color-3: rgba(52, 152, 219, 0.1);
 }

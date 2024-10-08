@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import TitleBar from "../../Components/TitleBar/TitleBar";
-import "../../Components/styles/index.scss";
-import { GetGradeUser } from "../../Components/Functions/requestProfile";
-import NavBar from "../../Components/NavBar/NavBar";
+import React, { useEffect, useRef, useState } from 'react';
+import TitleBar from '../../Components/TitleBar/TitleBar';
+import '../../Components/styles/index.scss';
+import { GetGradeUser } from '../../Components/Functions/requestProfile';
+import NavBar from '../../Components/NavBar/NavBar';
 import {
   bookMark,
   calculator,
@@ -21,14 +21,14 @@ import {
   monitor,
   people,
   showMarks,
-} from "../../Components/NavBar/svg";
+} from '../../Components/NavBar/svg';
 // import { CSSTransition } from 'react-transition-group';/
-import BurgerMenu from "../../Components/BurgerMenu/BurgerMenu";
-import Modal from "../../Components/Modal/Modal";
-import "../../assets/styles/colors.scss";
-import "../../assets/styles/themes.scss";
-import ReAuth from "../../Components/ReAuth/ReAuth";
-import Preloaders from "../../Components/Preloaders/Preloaders";
+import BurgerMenu from '../../Components/BurgerMenu/BurgerMenu';
+import Modal from '../../Components/Modal/Modal';
+import '../../assets/styles/colors.scss';
+import '../../assets/styles/themes.scss';
+import ReAuth from '../../Components/ReAuth/ReAuth';
+import Preloaders from '../../Components/Preloaders/Preloaders';
 
 const MainPage = () => {
   const [marks, setMarks] = useState({});
@@ -36,39 +36,39 @@ const MainPage = () => {
   const [open, setOpen] = useState(false);
   const subjectMark = useRef(null);
   const [openIndex, setOpenIndex] = useState(null);
-  const [subjectMarkHeight, setSubjectMarkHeight] = useState("100%");
+  const [subjectMarkHeight, setSubjectMarkHeight] = useState('100%');
   const [burgerState, setBurgerState] = useState(false);
   const [isOpenMarks, setIsOpenMarks] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
-    const themeType = localStorage.getItem("theme");
-    const accentColor = localStorage.getItem("accent_color");
+    const themeType = localStorage.getItem('theme');
+    const accentColor = localStorage.getItem('accent_color');
 
-    document.querySelector("body").classList.add(themeType);
-    document.querySelector("body").classList.add(accentColor);
+    document.querySelector('body').classList.add(themeType);
+    document.querySelector('body').classList.add(accentColor);
   }, []);
 
   const formatNameAbbreviate = (name) => {
-    const nameParts = name.split(" ");
+    const nameParts = name.split(' ');
     if (nameParts.length > 3) {
       const initials = nameParts
         .map((part) => part.charAt(0).toUpperCase())
-        .join("");
+        .join('');
       return initials;
     } else {
       return name;
     }
   };
   const openSubjectMarks = ({ subject }) => {
-    subjectMark.current.classList.toggle("fadeIn");
+    subjectMark.current.classList.toggle('fadeIn');
     setOpen(!open);
   };
 
   const formatDate = (date) => {
-    return new Date(date).toLocaleDateString("ru-RU", {
-      month: "numeric",
-      day: "numeric",
+    return new Date(date).toLocaleDateString('ru-RU', {
+      month: 'numeric',
+      day: 'numeric',
     });
   };
 
@@ -76,15 +76,15 @@ const MainPage = () => {
     const subjectMapping = {
       Математика: calculator(),
       Литература: bookMark(),
-      "Физическая культура": dumbbells(),
+      'Физическая культура': dumbbells(),
       ОБИЗР: compas(),
       Обществознание: people(),
       Физика: magnit(),
       Химия: chemistry(),
       Биология: dnk(),
       География: globus(),
-      "Иностранный язык/2 подгруппа": hand(),
-      "Информатика/2 группа": monitor(),
+      'Иностранный язык/2 подгруппа': hand(),
+      'Информатика/2 группа': monitor(),
     };
 
     return subjectMapping[subject];
@@ -99,12 +99,12 @@ const MainPage = () => {
       One: 1,
     };
 
-    return markMapping[mark] || "N/A";
+    return markMapping[mark] || 'N/A';
   };
   useEffect(() => {
     const fetchMarks = async () => {
       try {
-        GetGradeUser(localStorage.getItem("studentId")).then((result) => {
+        GetGradeUser(localStorage.getItem('studentId')).then((result) => {
           setMarks(result.table);
           setInfo(result.account.persons);
         });
@@ -154,7 +154,6 @@ const MainPage = () => {
                     ref={subjectMark}
                     onClick={() => {
                       setOpenIndex(openIndex === index ? null : index);
-                      document.scrollingElement = "smooth";
                     }}
                     key={index}
                   >
@@ -170,7 +169,7 @@ const MainPage = () => {
                         </p>
                       </div>
                       <div className="right">
-                        <p>{subject.averageMark || "null"}</p>
+                        <p>{subject.averageMark || 'null'}</p>
                       </div>
                     </div>
                     {openIndex === index && (
@@ -182,9 +181,9 @@ const MainPage = () => {
                                 <p>
                                   {day.markValues.map((mark, markIndex) => (
                                     <span key={markIndex}>
-                                      {funcFormatMark({ mark }) || "N/A"}
+                                      {funcFormatMark({ mark }) || 'N/A'}
                                       {markIndex !==
-                                        day.markValues.length - 1 && ", "}
+                                        day.markValues.length - 1 && ', '}
                                     </span>
                                   ))}
                                   <p className="dateMark">
@@ -218,7 +217,7 @@ const MainPage = () => {
             )}
           </div>
         </div>
-        <Modal type={"profile"} state={openModal} setState={setOpenModal} />
+        <Modal type={'profile'} state={openModal} setState={setOpenModal} />
         <NavBar />
       </div>
     </>

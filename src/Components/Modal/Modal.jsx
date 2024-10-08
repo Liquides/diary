@@ -1,12 +1,22 @@
-import "../styles/modal.scss";
-import { cat, ghost, heart, magicStick } from "../NavBar/svg";
-import { useEffect, useRef, useState } from "react";
-import ModalApperance from "./ModalApperance";
-import ModalProfile from "./ModalProfile";
+import '../styles/modal.scss';
+import { cat, ghost, heart, magicStick } from '../NavBar/svg';
+import { useEffect, useRef, useState } from 'react';
+import ModalApperance from './ModalApperance';
+import ModalProfile from './ModalProfile';
 
 const Modal = ({ state, setState, isAnimating, setIsAnimating, type }) => {
+  useEffect(() => {
+    if (state) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      const timer = setTimeout(() => {
+        document.body.style.overflow = 'auto';
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [state]);
   switch (type) {
-    case "customization":
+    case 'customization':
       return (
         <ModalApperance
           state={state}
@@ -16,7 +26,7 @@ const Modal = ({ state, setState, isAnimating, setIsAnimating, type }) => {
           type={type}
         />
       );
-    case "profile":
+    case 'profile':
       return (
         <ModalProfile
           state={state}
