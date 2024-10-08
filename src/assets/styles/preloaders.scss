@@ -56,3 +56,108 @@
     }
   }
 }
+
+.days {
+  .timer {
+    background-color: transparent;
+  }
+  .day {
+    &.preloader {
+      animation: shimmer 1.5s infinite linear;
+      background: linear-gradient(
+        to right,
+        var(--preloader-color-1),
+        var(--preloader-color-2),
+        var(--preloader-color-3)
+      );
+      background-size: 1000px 100%;
+
+      @keyframes shimmer {
+        0% {
+          background-position: -1000px 0;
+        }
+        100% {
+          background-position: 1000px 0;
+        }
+      }
+      .title {
+        .preload-text {
+          height: 20px;
+          width: 200px;
+          background-color: var(--color);
+          border-radius: 6.52px;
+          animation: shimmer 1s infinite;
+        }
+      }
+      .callsList {
+        .object {
+          .call.preloader {
+            background-color: var(--bg-color) !important;
+            animation: shimmer 1s infinite !important;
+            .timer.preload {
+              height: 2px;
+              width: 50%;
+              background-color: var(--color);
+              animation: shimmer 1s infinite;
+            }
+            .left {
+              .id.preload,
+              .nameObject.preload,
+              .timeToCall.preload {
+                height: 14px;
+                background-color: var(--color);
+                border-radius: 6.52px;
+                animation: shimmer 1s infinite;
+              }
+              .id.preload {
+                width: 20px;
+              }
+              .nameObject.preload {
+                width: 100px;
+              }
+              .timeToCall.preload {
+                width: 80px;
+              }
+            }
+            .right {
+              .timerNumber.preload {
+                height: 12px;
+                width: 40px;
+                background-color: var(--color);
+                border-radius: 6.52px;
+                animation: shimmer 1s infinite;
+              }
+            }
+          }
+          .dotPoint.preload {
+            width: 10px;
+            height: 10px;
+            background-color: var(--color);
+            border-radius: 50%;
+            animation: blink-animation 1s infinite;
+          }
+        }
+      }
+    }
+  }
+}
+.buttonsChangeDay {
+  button {
+    &.preloader {
+      background-color: var(--color) !important;
+      border-radius: 6.52px;
+      animation: blink-animation 1s infinite;
+      @keyframes blink-animation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

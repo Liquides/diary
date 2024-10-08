@@ -28,7 +28,7 @@ import Modal from '../../Components/Modal/Modal';
 import '../../assets/styles/colors.scss';
 import '../../assets/styles/themes.scss';
 import ReAuth from '../../Components/ReAuth/ReAuth';
-import Preloaders from '../../Components/Preloaders/Preloaders';
+import { PreloadersDiary } from '../../Components/Preloaders/Preloaders';
 
 const MainPage = () => {
   const [marks, setMarks] = useState({});
@@ -213,7 +213,7 @@ const MainPage = () => {
                 ) : null
               )
             ) : (
-              <Preloaders />
+              <PreloadersDiary />
             )}
           </div>
         </div>

@@ -79,25 +79,44 @@
               opacity: 0.5;
             }
 
-            .id {
-              color: #3173a5;
-              font-size: 18px;
-              font-weight: 600;
-            }
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-            .nameObject {
-              color: #fff;
-              font-size: 14px;
-              font-weight: 600;
+            .left {
+              display: flex;
 
-              &.noLesson {
+              gap: 10px;
+              align-items: center;
+              .id {
+                color: #3173a5;
+                font-size: 18px;
+                font-weight: 600;
+              }
+
+              .nameObject {
+                color: #fff;
+                font-size: 14px;
+                font-weight: 600;
+
+                &.noLesson {
+                  color: #777777;
+                }
+              }
+
+              .timeToCall {
+                font-size: 14px;
                 color: #777777;
               }
             }
 
-            .timeToCall {
-              font-size: 14px;
-              color: #777777;
+            .right {
+              display: flex;
+              justify-content: right;
+              align-items: center;
+              color: #fff;
+              opacity: 0.5;
+              font-size: 12px;
             }
           }
 
