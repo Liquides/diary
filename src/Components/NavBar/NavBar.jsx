@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import '../styles/navBar.scss';
+import React, { useState } from "react";
+import "../styles/navBar.scss";
 import {
   svgHome,
   svgCalendar,
@@ -8,11 +8,12 @@ import {
   clock,
   book,
   palette,
-} from './svg';
-import { NavLink } from 'react-router-dom';
-import Modal from '../Modal/Modal';
+  Radio,
+} from "./svg";
+import { NavLink } from "react-router-dom";
+import Modal from "../Modal/Modal";
 
-const NavBar = ({ themeToggle, left, center, right }) => {
+const NavBar = ({ themeToggle, left, center, right, stateIcon }) => {
   const [modal, setModal] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -29,18 +30,23 @@ const NavBar = ({ themeToggle, left, center, right }) => {
         setState={setModal}
         isAnimating={isAnimating}
         setIsAnimating={setIsAnimating}
-        type={'customization'}
+        type={"customization"}
+        stateIcon={stateIcon}
       />
       <div className="navBar">
-        <NavLink to={'/calls'} className="bar">
-          {clock()} Расписание
+        <NavLink to={"/calls"} className="bar">
+          {clock()}
         </NavLink>
-        <div className={'palette'} onClick={openModal}>
+        <NavLink to={"/diary"} className="bar">
+          {book()}
+        </NavLink>
+        <NavLink style={{ opacity: 0.5 }} to={"/radio"} className={"bar"}>
+          <Radio />
+          Скоро
+        </NavLink>
+        <div className={"palette"} onClick={openModal}>
           {palette()}
         </div>
-        <NavLink to={'/diary'} className="bar">
-          {book()} Дневник
-        </NavLink>
       </div>
     </>
   );

@@ -1,5 +1,5 @@
-import React from 'react';
-import '../../assets/styles/preloaders.scss';
+import React from "react";
+import "../../assets/styles/preloaders.scss";
 
 const PreloadersDiary = () => {
   return (
@@ -31,7 +31,7 @@ const PreloadersDays = () => {
         <div class="callsList">
           <div class="object">
             <div class="call preloader">
-              <div class="timer preload"></div>
+              {/* <div class="timer preload"></div> */}
               <div class="left">
                 <div class="id preload"></div>
                 <div class="nameObject preload"></div>

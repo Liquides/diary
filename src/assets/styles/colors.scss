@@ -19,7 +19,7 @@ body {
             }
           }
           .check {
-            input[type='checkbox'] {
+            input[type="checkbox"] {
               border: 2px solid #4a4a4a;
               transition: 0.2s ease;
 
@@ -85,6 +85,13 @@ body {
                     &.active {
                       outline: 2px solid var(--color);
                     }
+                  }
+                }
+              }
+              .choiceColors {
+                .color {
+                  &.active {
+                    outline: 2px solid var(--color);
                   }
                 }
               }
@@ -185,6 +192,14 @@ body {
             fill: var(--color);
           }
         }
+        &:active {
+          background-color: var(--color);
+          svg {
+            path {
+              fill: #fff;
+            }
+          }
+        }
         &.active {
           background-color: var(--color);
           color: #fff;
@@ -208,7 +223,7 @@ body {
 
 body.red {
   --color: rgb(231, 76, 60);
-  --color-opacity: rgba(231, 76, 60, 0.43);
+  --color-opacity: rgba(231, 76, 60, 0.5);
   --preloader-color-1: rgba(231, 76, 60, 0.1);
   --preloader-color-2: rgba(231, 76, 60, 0.15);
   --preloader-color-3: rgba(231, 76, 60, 0.1);
@@ -216,7 +231,7 @@ body.red {
 
 body.green {
   --color: rgb(0, 145, 60);
-  --color-opacity: rgba(0, 145, 60, 0.43);
+  --color-opacity: rgba(0, 145, 60, 0.5);
   --preloader-color-1: rgba(0, 145, 60, 0.1);
   --preloader-color-2: rgba(0, 145, 60, 0.15);
   --preloader-color-3: rgba(0, 145, 60, 0.1);
@@ -224,7 +239,7 @@ body.green {
 
 body.default {
   --color: rgb(53, 132, 192);
-  --color-opacity: rgba(53, 132, 192, 0.43);
+  --color-opacity: rgba(53, 132, 192, 0.5);
   --preloader-color-1: rgba(53, 132, 192, 0.1);
   --preloader-color-2: rgba(53, 132, 192, 0.15);
   --preloader-color-3: rgba(53, 132, 192, 0.1);
@@ -232,7 +247,7 @@ body.default {
 
 body.yellow {
   --color: rgb(241, 196, 15);
-  --color-opacity: rgba(241, 196, 15, 0.43);
+  --color-opacity: rgba(241, 196, 15, 0.5);
   --preloader-color-1: rgba(241, 196, 15, 0.1);
   --preloader-color-2: rgba(241, 196, 15, 0.15);
   --preloader-color-3: rgba(241, 196, 15, 0.1);
@@ -240,7 +255,7 @@ body.yellow {
 
 body.pink {
   --color: rgb(192, 66, 182);
-  --color-opacity: rgba(192, 66, 182, 0.1);
+  --color-opacity: rgba(192, 66, 182, 0.5);
   --preloader-color-1: rgba(192, 66, 182, 0.1);
   --preloader-color-2: rgba(192, 66, 182, 0.15);
   --preloader-color-3: rgba(192, 66, 182, 0.1);
@@ -248,7 +263,7 @@ body.pink {
 
 body.purple {
   --color: rgb(155, 89, 182);
-  --color-opacity: rgba(155, 89, 182, 0.1);
+  --color-opacity: rgba(155, 89, 182, 0.5);
   --preloader-color-1: rgba(155, 89, 182, 0.1);
   --preloader-color-2: rgba(155, 89, 182, 0.15);
   --preloader-color-3: rgba(155, 89, 182, 0.1);
@@ -256,7 +271,7 @@ body.purple {
 
 body.orange {
   --color: rgb(230, 126, 34);
-  --color-opacity: rgba(230, 126, 34, 0.1);
+  --color-opacity: rgba(230, 126, 34, 0.5);
   --preloader-color-1: rgba(230, 126, 34, 0.1);
   --preloader-color-2: rgba(230, 126, 34, 0.15);
   --preloader-color-3: rgba(230, 126, 34, 0.1);
@@ -264,7 +279,7 @@ body.orange {
 
 body.blue {
   --color: rgb(52, 83, 219);
-  --color-opacity: rgba(52, 96, 219, 0.1);
+  --color-opacity: rgba(52, 96, 219, 0.5);
   --preloader-color-1: rgba(52, 152, 219, 0.1);
   --preloader-color-2: rgba(52, 152, 219, 0.15);
   --preloader-color-3: rgba(52, 152, 219, 0.1);

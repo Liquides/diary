@@ -34,7 +34,7 @@
         &:nth-child(1) {
           top: 10px;
           left: 10px;
-          transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(135deg);
           svg {
             width: 30px;
             height: 30px;
@@ -43,7 +43,7 @@
         &:nth-child(2) {
           top: 10px;
           right: 10px;
-          transform: translate(50%, -50%) rotate(-45deg);
+          transform: translate(50%, -50%) rotate(-135deg);
           svg {
             width: 30px;
             height: 30px;

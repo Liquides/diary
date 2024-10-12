@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import NavBar from '../../Components/NavBar/NavBar';
-import '../../assets/styles/calls.scss';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import NavBar from "../../Components/NavBar/NavBar";
+import "../../assets/styles/calls.scss";
+import axios from "axios";
 
-import '../../assets/styles/colors.scss';
-import '../../assets/styles/themes.scss';
-import { PreloadersDays } from '../../Components/Preloaders/Preloaders';
+import "../../assets/styles/colors.scss";
+import "../../assets/styles/themes.scss";
+import { PreloadersDays } from "../../Components/Preloaders/Preloaders";
 
 const Calls = () => {
   const [calls, setCalls] = useState([]);
@@ -15,10 +15,10 @@ const Calls = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    document.querySelector('body').classList.add(localStorage.getItem('theme'));
+    document.querySelector("body").classList.add(localStorage.getItem("theme"));
     document
-      .querySelector('body')
-      .classList.add(localStorage.getItem('accent_color'));
+      .querySelector("body")
+      .classList.add(localStorage.getItem("accent_color"));
   }, []);
 
   useEffect(() => {
@@ -26,20 +26,20 @@ const Calls = () => {
       try {
         const cookies = document.cookie;
         const allowedCookieKeys = [
-          '.AspNetCore.Culture',
-          '.AspNetCore.Session',
-          '.AspNetCore.Cookies',
+          ".AspNetCore.Culture",
+          ".AspNetCore.Session",
+          ".AspNetCore.Cookies",
         ];
         const filteredCookies = cookies
-          .split(';')
+          .split(";")
           .filter((cookie) => {
-            const [key] = cookie.split('=');
+            const [key] = cookie.split("=");
             return allowedCookieKeys.includes(key.trim());
           })
-          .join('; ');
-        const response = await axios.post('http://localhost:3001/calls', {
+          .join("; ");
+        const response = await axios.post("http://localhost:3001/calls", {
           token: filteredCookies,
-          studentId: localStorage.getItem('studentId'),
+          studentId: localStorage.getItem("studentId"),
         });
 
         if (response.data?.error) {
@@ -61,10 +61,10 @@ const Calls = () => {
   }, []);
 
   const timer = ({ dataString, lessons }) => {
-    const currentTime = new Date().toLocaleTimeString('ru-RU', {
-      timeZone: 'Asia/Chita',
-      hour: '2-digit',
-      minute: '2-digit',
+    const currentTime = new Date().toLocaleTimeString("ru-RU", {
+      timeZone: "Asia/Chita",
+      hour: "2-digit",
+      minute: "2-digit",
     });
 
     const currentPairIndex = lessons.findIndex((lesson) => {
@@ -74,25 +74,25 @@ const Calls = () => {
     });
 
     if (currentPairIndex !== -1) {
-      console.log('Текущая пара:', lessons[currentPairIndex]);
+      console.log("Текущая пара:", lessons[currentPairIndex]);
       setCurrentLessonIndex(currentPairIndex);
 
       const updateProgress = () => {
-        const currentTime = new Date().toLocaleTimeString('ru-RU', {
-          timeZone: 'Asia/Chita',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
+        const currentTime = new Date().toLocaleTimeString("ru-RU", {
+          timeZone: "Asia/Chita",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
         });
 
         const [currentHour, currentMinute, currentSecond] = currentTime
-          .split(':')
+          .split(":")
           .map(Number);
         const [startHour, startMinute] = lessons[currentPairIndex].startTime
-          .split(':')
+          .split(":")
           .map(Number);
         const [endHour, endMinute] = lessons[currentPairIndex].endTime
-          .split(':')
+          .split(":")
           .map(Number);
 
         const totalSeconds =
@@ -111,10 +111,10 @@ const Calls = () => {
 
         // Format remaining time as hh:mm:ss
         const formattedRemainingTime = [
-          remainingHours.toString().padStart(2, '0'),
-          remainingMinutes.toString().padStart(2, '0'),
-          remainingSecondsDisplay.toString().padStart(2, '0'),
-        ].join(':');
+          remainingHours.toString().padStart(2, "0"),
+          remainingMinutes.toString().padStart(2, "0"),
+          remainingSecondsDisplay.toString().padStart(2, "0"),
+        ].join(":");
 
         // Update state with formatted remaining time
         setRemainingTime(formattedRemainingTime);
@@ -128,67 +128,79 @@ const Calls = () => {
 
       return () => clearInterval(intervalId);
     } else {
-      console.log('Сейчас нет активных пар');
+      console.log("Сейчас нет активных пар");
       setCurrentLessonIndex(null);
       setRemainingTime(null);
       setProgress(0);
     }
   };
 
+  const formatNameAbbreviate = (name) => {
+    const nameParts = name.split(" ");
+    if (nameParts.length > 3) {
+      const initials = nameParts
+        .map((part) => part.charAt(0).toUpperCase())
+        .join("");
+      return initials;
+    } else {
+      return name;
+    }
+  };
+
   const formatDate = ({ dateString, day }) => {
     const formatDate = new Date(dateString);
 
-    const dayWeek = formatDate.toLocaleString('ru-RU', {
-      weekday: 'long',
+    const dayWeek = formatDate.toLocaleString("ru-RU", {
+      weekday: "long",
     });
 
     const formatWeek = {
-      понедельник: 'ПН',
-      вторник: 'ВТ',
-      среда: 'СР',
-      четверг: 'ЧТ',
-      пятница: 'ПТ',
-      суббота: 'СБ',
-      воскресенье: 'ВС',
+      понедельник: "ПН",
+      вторник: "ВТ",
+      среда: "СР",
+      четверг: "ЧТ",
+      пятница: "ПТ",
+      суббота: "СБ",
+      воскресенье: "ВС",
     };
 
     const formatMonth = {
-      январь: 'Января',
-      февраль: 'Февраля',
-      март: 'Марта',
-      апрель: 'Апреля',
-      май: 'Мая',
-      июнь: 'Июня',
-      июль: 'Июля',
-      август: 'Августа',
-      сентябрь: 'Сентября',
-      октябрь: 'Октября',
-      ноябрь: 'Ноября',
-      декабрь: 'Декабря',
+      январь: "Января",
+      февраль: "Февраля",
+      март: "Марта",
+      апрель: "Апреля",
+      май: "Мая",
+      июнь: "Июня",
+      июль: "Июля",
+      август: "Августа",
+      сентябрь: "Сентября",
+      октябрь: "Октября",
+      ноябрь: "Ноября",
+      декабрь: "Декабря",
     };
 
     if (day) {
       return `${formatWeek[dayWeek]} - ${
         parseInt(
-          formatDate.toLocaleString('ru-RU', {
-            day: 'numeric',
+          formatDate.toLocaleString("ru-RU", {
+            day: "numeric",
           })
         ) + day
       } ${
         formatMonth[
-          formatDate.toLocaleString('ru-RU', {
-            month: 'long',
+          formatDate.toLocaleString("ru-RU", {
+            month: "long",
           })
         ]
       }`;
     }
 
-    return `${formatWeek[dayWeek]} - ${formatDate.toLocaleString('ru-RU', {
-      day: 'numeric',
+    return `${formatWeek[dayWeek]} - ${formatDate.toLocaleString("ru-RU", {
+      day: "numeric",
     })} ${
       formatMonth[
-        formatDate.toLocaleString('ru-RU', {
-          month: 'long',
+        formatDate.toLocaleString("ru-RU", {
+          month: "long",
         })
       ]
     }`;
@@ -211,7 +223,7 @@ const Calls = () => {
                   {calls?.[0]?.lessons.map((lesson, index) => (
                     <div className="object" key={index}>
                       <div
-                        className={`call${!lesson?.name ? ' noLesson' : ''}`}
+                        className={`call${!lesson?.name ? " noLesson" : ""}`}
                       >
                         {index === currentLessonIndex && (
                           <div
@@ -223,10 +235,12 @@ const Calls = () => {
                           <div className="id">{index + 1}</div>
                           <div
                             className={`nameObject${
-                              !lesson?.name ? ' noLesson' : ''
+                              !lesson?.name ? " noLesson" : ""
                             }`}
                           >
-                            {lesson?.name || 'Нет занятия'}
+                            {lesson?.name
+                              ? formatNameAbbreviate(lesson.name)
+                              : "Нет занятия"}
                           </div>
                           <div className="timeToCall">
                             {lesson.startTime} - {lesson.endTime}
@@ -240,7 +254,7 @@ const Calls = () => {
                       </div>
                       <div
                         className={`dotPoint${
-                          !lesson?.name ? ' noLesson' : ''
+                          !lesson?.name ? " noLesson" : ""
                         }`}
                         style={{
                           opacity: index === currentLessonIndex ? 1 : 0.2,
