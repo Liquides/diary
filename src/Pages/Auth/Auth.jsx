@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../../assets/styles/main.scss';
-import TitleBar from '../../Components/TitleBar/TitleBar';
 import { auth } from '../../Components/Functions/AuthDiary';
 import { useNavigate } from 'react-router-dom';
 import { info } from '../../Components/NavBar/svg';

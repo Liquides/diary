@@ -26,20 +26,20 @@ const Calls = () => {
       try {
         const cookies = document.cookie;
         const allowedCookieKeys = [
-          ".AspNetCore.Culture",
-          ".AspNetCore.Session",
-          ".AspNetCore.Cookies",
+          '.AspNetCore.Culture',
+          '.AspNetCore.Session',
+          '.AspNetCore.Cookies',
         ];
         const filteredCookies = cookies
-          .split(";")
+          .split(';')
           .filter((cookie) => {
-            const [key] = cookie.split("=");
+            const [key] = cookie.split('=');
             return allowedCookieKeys.includes(key.trim());
           })
-          .join("; ");
-        const response = await axios.post("http://localhost:3001/calls", {
+          .join('; ');
+        const response = await axios.post('http://localhost:3001/calls', {
           token: filteredCookies,
-          studentId: localStorage.getItem("studentId"),
+          studentId: localStorage.getItem('studentId'),
         });
 
         if (response.data?.error) {
@@ -61,10 +61,10 @@ const Calls = () => {
   }, []);
 
   const timer = ({ dataString, lessons }) => {
-    const currentTime = new Date().toLocaleTimeString("ru-RU", {
-      timeZone: "Asia/Chita",
-      hour: "2-digit",
-      minute: "2-digit",
+    const currentTime = new Date().toLocaleTimeString('ru-RU', {
+      timeZone: 'Asia/Chita',
+      hour: '2-digit',
+      minute: '2-digit',
     });
 
     const currentPairIndex = lessons.findIndex((lesson) => {
