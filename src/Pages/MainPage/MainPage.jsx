@@ -103,6 +103,12 @@ const MainPage = () => {
 
     return markMapping[mark] || "N/A";
   };
+  const formatStateDay = (type) => {
+    const stateMapping = {
+      IsLate: "ОП",
+    };
+    return stateMapping[type] || "N/A";
+  };
   useEffect(() => {
     const fetchMarks = async () => {
       try {
@@ -212,7 +218,13 @@ const MainPage = () => {
                                     </p>
                                   </p>
                                 ) : (
-                                  <p>Null</p>
+                                  <p className="abenceType">
+                                    {formatStateDay(day.absenceType)}
+
+                                    <p className="dateMark">
+                                      {formatDate(day.day)}
+                                    </p>
+                                  </p>
                                 )}
                               </div>
                             ))}

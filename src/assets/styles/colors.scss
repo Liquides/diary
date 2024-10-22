@@ -132,6 +132,9 @@ body {
           .bottomMarks {
             .listMarks {
               .mark {
+                p.abenceType {
+                  color: var(--color) !important;
+                }
                 p {
                   span {
                     color: var(--color);
