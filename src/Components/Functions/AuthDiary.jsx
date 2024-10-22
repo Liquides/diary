@@ -3,7 +3,10 @@ import axios from 'axios';
 export const auth = async (login, password) => {
   try {
     const payload = { login, password };
-    const response = await axios.post('http://localhost:3001/auth', payload);
+    const response = await axios.post(
+      'http://109.71.242.232:3001/auth',
+      payload
+    );
 
     if (
       response.data &&
