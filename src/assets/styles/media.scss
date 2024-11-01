@@ -2,24 +2,15 @@
   .wrapper {
     .auth {
       width: 90%;
-      max-width: 300px;
-
+      max-width: 600px;
       .form {
         width: 100%;
-
-        .inputs {
-          input {
-            font-size: 14px;
-            padding: 12px 15px;
-          }
-        }
-
-        .auth_button {
-          button {
-            font-size: 16px;
-            padding: 8px;
-          }
-        }
+        // .inputs {
+        //   input {
+        //     font-size: 14px;
+        //     padding: 12px 15px;
+        //   }
+        // }
       }
     }
   }

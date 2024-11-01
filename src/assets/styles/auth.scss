@@ -22,6 +22,7 @@
 
   .errorMessage {
     width: 100%;
+    font-size: 14px;
 
     color: #fff;
     display: flex;
@@ -30,6 +31,17 @@
     path {
       fill: #3173a5;
     }
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    animation: fadein 0.5s ease-in-out;
   }
 
   .form {
@@ -129,7 +141,7 @@
     }
   }
   .auth_button {
-    padding: 20px;
+    padding: 0 20px;
     width: 100%;
     display: flex;
 

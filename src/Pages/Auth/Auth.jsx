@@ -11,6 +11,7 @@ export const Auth = () => {
   const password = useRef(null);
   const navigate = useNavigate();
   const [err, setErr] = useState(false);
+  const [textErr, setTextErr] = useState('');
   const errRef = useRef(null);
 
   useEffect(() => {
@@ -20,9 +21,10 @@ export const Auth = () => {
     document.querySelector('body').classList.add(themeType);
     document.querySelector('body').classList.add(accentColor);
   }, []);
-  const errMessageView = ({ type }) => {
+  const errMessageView = ({ type, content }) => {
     if (type === 'auth') {
       setErr(true);
+      setTextErr(content);
     }
   };
 
@@ -44,7 +46,7 @@ export const Auth = () => {
           {err && (
             <div className="errorMessage" ref={errRef}>
               {info()}
-              <span>Заполните все поля</span>
+              <span>{textErr}</span>
             </div>
           )}
         </div>
@@ -53,13 +55,14 @@ export const Auth = () => {
             onClick={async () => {
               if (login.current.value && password.current.value) {
                 const isAuthenticated = await auth(login.current.value, password.current.value);
+                console.log(isAuthenticated);
                 if (isAuthenticated) {
                   navigate('/diary');
                 } else {
-                  alert('Неверный логин или пароль');
+                  errMessageView({ type: 'auth', content: 'Неверный логин или пароль' });
                 }
               } else {
-                errMessageView({ type: 'auth' });
+                errMessageView({ type: 'auth', content: 'Заполните все поля' });
               }
             }}
           >
