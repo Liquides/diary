@@ -1,9 +1,12 @@
 .windowCalls {
   display: flex;
   align-items: center;
+  gap: 10px;
   justify-content: center;
-  height: 100%;
-  width: 90%;
+  flex-direction: column;
+  max-width: 500px;
+  min-width: 200px;
+  width: 95%;
 
   .days {
     display: flex;

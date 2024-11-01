@@ -19,6 +19,7 @@ app.use(
 
 app.post('/auth', async (req, res) => {
   try {
+    console.log(req.body);
     const login = req.body.login;
     const password = req.body.password;
     const newPassword = crypto
@@ -40,7 +41,6 @@ app.post('/auth', async (req, res) => {
       }
     );
 
-    // Получаем куки из ответа
     const cookies = response.headers['set-cookie'];
     cookies.push('.AspNetCore.Culture=c%3Dru%7Cuic%3Dru; path=/');
 

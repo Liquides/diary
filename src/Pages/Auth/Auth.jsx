@@ -4,6 +4,7 @@ import { auth } from '../../Components/Functions/AuthDiary';
 import { useNavigate } from 'react-router-dom';
 import { info } from '../../Components/NavBar/svg';
 import NavBar from '../../Components/NavBar/NavBar';
+import '../../assets/styles/auth.scss';
 export const Auth = () => {
   const login = useRef(null);
   const password = useRef(null);
@@ -29,21 +30,11 @@ export const Auth = () => {
       <div className="auth">
         <div className="form">
           <div className="title">
-            <h2>CHPK Diary</h2>
+            <h2>CHPK App</h2>
           </div>
           <div className="inputs">
-            <input
-              type="text"
-              placeholder="Логин"
-              autoComplete="off"
-              ref={login}
-            />
-            <input
-              type="password"
-              placeholder="Пароль"
-              autoComplete="off"
-              ref={password}
-            />
+            <input type="text" placeholder="Логин" autoComplete="off" ref={login} />
+            <input type="password" placeholder="Пароль" autoComplete="off" ref={password} />
             <div className="check">
               <input type="checkbox" id="check" />
               <label htmlFor="check">Запомнить меня</label>
@@ -60,10 +51,7 @@ export const Auth = () => {
           <button
             onClick={async () => {
               if (login.current.value && password.current.value) {
-                const isAuthenticated = await auth(
-                  login.current.value,
-                  password.current.value
-                );
+                const isAuthenticated = await auth(login.current.value, password.current.value);
                 if (isAuthenticated) {
                   navigate('/diary');
                 } else {

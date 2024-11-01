@@ -1,47 +1,48 @@
-import { StrictMode, useEffect } from "react";
-import { createRoot } from "react-dom/client";
+import { StrictMode, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
 import {
   createBrowserRouter,
   Navigate,
   Route,
   RouterProvider,
-} from "react-router-dom";
-import { Auth } from "./Pages/Auth/Auth";
-import MainPage from "./Pages/MainPage/MainPage";
-import Calls from "./Pages/Calls/Calls";
-import { auth } from "./Components/Functions/AuthDiary";
-import ReAuth from "./Components/ReAuth/ReAuth";
+} from 'react-router-dom';
+import { Auth } from './Pages/Auth/Auth';
+import MainPage from './Pages/MainPage/MainPage';
+import Calls from './Pages/Calls/Calls';
+import { auth } from './Components/Functions/AuthDiary';
+import ReAuth from './Components/ReAuth/ReAuth';
+import './assets/styles/media.scss';
 
 const isColorAndTheme = () => {
-  const color = localStorage.getItem("color");
-  const theme = localStorage.getItem("theme");
+  const color = localStorage.getItem('color');
+  const theme = localStorage.getItem('theme');
 
   if (!color) {
-    localStorage.setItem("color", "default");
+    localStorage.setItem('color', 'default');
   }
 
   if (!theme) {
     const prefersDarkMode = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      '(prefers-color-scheme: dark)'
     ).matches;
-    const deviceTheme = prefersDarkMode ? "dark" : "light";
-    localStorage.setItem("theme", deviceTheme);
+    const deviceTheme = prefersDarkMode ? 'dark' : 'light';
+    localStorage.setItem('theme', deviceTheme);
   }
 };
 
 isColorAndTheme();
 
 const checkCookies = () => {
-  const cookies = document.cookie.split(";").reduce((acc, cookie) => {
-    const [name, value] = cookie.trim().split("=");
+  const cookies = document.cookie.split(';').reduce((acc, cookie) => {
+    const [name, value] = cookie.trim().split('=');
     acc[name] = decodeURIComponent(value);
     return acc;
   }, {});
 
   if (
-    !cookies[".AspNetCore.Culture"] ||
-    !cookies[".AspNetCore.Session"] ||
-    !cookies[".AspNetCore.Cookies"]
+    !cookies['.AspNetCore.Culture'] ||
+    !cookies['.AspNetCore.Session'] ||
+    !cookies['.AspNetCore.Cookies']
   ) {
     return false;
   }
@@ -60,7 +61,7 @@ const AuthWrapper = ({ children }) => {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: (
       <AuthWrapper>
         <Auth />
@@ -68,7 +69,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/diary",
+    path: '/diary',
     element: (
       <PrivateWrapper>
         <MainPage />
@@ -76,7 +77,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/calls",
+    path: '/calls',
     element: (
       <PrivateWrapper>
         <Calls />
@@ -85,7 +86,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/radio",
+    path: '/radio',
     element: (
       <PrivateWrapper>
         <div className="wrapper">radio</div>
@@ -94,7 +95,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>

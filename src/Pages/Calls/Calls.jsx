@@ -37,7 +37,7 @@ const Calls = () => {
             return allowedCookieKeys.includes(key.trim());
           })
           .join('; ');
-        const response = await axios.post('http://109.71.242.232:3001/calls', {
+        const response = await axios.post('http://localhost:3001/calls', {
           token: filteredCookies,
           studentId: localStorage.getItem('studentId'),
         });
