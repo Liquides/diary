@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { info } from '../../Components/NavBar/svg';
 import NavBar from '../../Components/NavBar/NavBar';
 import '../../assets/styles/auth.scss';
+import '../../assets/styles/media.scss';
 export const Auth = () => {
   const login = useRef(null);
   const password = useRef(null);
